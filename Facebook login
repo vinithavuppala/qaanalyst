@@ -1,0 +1,23 @@
+package project1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class facebooklogin {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver = new FirefoxDriver();
+		driver.get("https://www.facebook.com/");
+		driver.findElement(By.xpath("//input[@name='email']")).sendKeys("vvinitha47@gmail.com");
+		driver.findElement(By.xpath("//input[@name='pass']")).sendKeys("vinnirakasi");
+		driver.findElement(By.xpath("//input[@value='Log In']")).click();
+		driver.findElement(By.xpath("html/body/div[1]/div[1]/div/div[1]/div/div/div/div[1]/div[2]/div/form/div/div/div/div/div[3]")).sendKeys("selenium");
+		
+		
+		
+
+	}
+
+}
