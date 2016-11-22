@@ -1,0 +1,50 @@
+package junitTestScript;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+
+public class Amazonjunit {
+	public static WebDriver driver;
+	
+	@Before
+	public void openbrowser()
+	{
+		
+	 driver = new FirefoxDriver();
+	driver.get("http://www.amazon.com/");
+	}
+	@Test
+	public void invokeApplication()
+	{
+		driver.get("http://www.amazon.com/");
+		System.out.println(driver.getTitle());
+		//verify the title of the page
+		String expTitle = "Amazon.com: Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more";
+		String ActTitle = driver.getTitle();
+		System.out.println(driver.getTitle());
+		Assert.assertEquals(expTitle, ActTitle);
+		WebElement textboXSearch = driver.findElement(By.id("twotabsearchtextbox"));
+		Assert.assertEquals(true,  textboXSearch.isDisplayed());
+		//Enter the search item in the search text box
+		textboXSearch.sendKeys("Iphone");
+		// search button
+		WebElement buttonSearch = driver.findElement(By.id("nav-search-submit-text"));
+		Assert.assertEquals(true, buttonSearch.isDisplayed());
+		buttonSearch.submit();
+		//WebElement searchDropD = driver.findElement(By.id("searchDropdownBox"));
+		//if(searchDropD.isDisplayed())
+		//WebElement buttonSearch = driver.findElement(By.id("nav-search-submit-text"));	
+	}
+	@After
+	public void closeBrowser()
+	{
+		driver.close();
+	}
+
+}
