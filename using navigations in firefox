@@ -1,0 +1,20 @@
+package project1;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Class1 {
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//step1:-open a browser
+		
+           WebDriver d= new FirefoxDriver();
+           //enter the url
+           //d.get("https://www.google.com/");
+           d.navigate().to("https://www.google.com/");
+           d.close();      
+	}
+
+}
